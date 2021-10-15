@@ -1,7 +1,7 @@
 # atanvarno/middleware
 [![Software License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Latest Version](https://img.shields.io/github/release/atanvarno69/middleware.svg?style=flat-square)](https://github.com/atanvarno69/middleware/releases)
-[![Build Status](https://img.shields.io/github/workflow/status/atanvarno69/middleware/tests?style=flat-square)](https://github.com/atanvarno69/middleware/actions?query=workflow%3Atests+branch%3Amaster)
+[![Build Status](https://img.shields.io/github/workflow/status/atanvarno69/middleware/Tests?style=flat-square)](https://github.com/atanvarno69/middleware/actions?query=workflow%3ATests+branch%3Amaster)
 ![Coverage Status](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/atanvarno69/a0d8994934bb1f7ccbe62b641cdf6b5b/raw/middleware.json)
 
 TODO: Basic description
