@@ -1,0 +1,84 @@
+name: Tests
+
+on: [push]
+
+jobs:
+  phpcs:
+    name: PHPCS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP 8.0
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          coverage: none
+          tools: composer:v2, cs2pr
+
+      - name: Install dependencies
+        run: composer update --no-progress
+
+      - name: Run phpcs
+        run: vendor/bin/phpcs -q --report=checkstyle | cs2pr
+
+  psalm:
+    name: Psalm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP 8.0
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          coverage: none
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer update --no-progress
+
+      - name: Run Psalm
+        run: vendor/bin/psalm --config=psalm.xml.dist --no-progress --output-format=github
+
+  phpunit:
+    name: PHPUnit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP 8.0
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          coverage: xdebug
+          tools: composer:v2
+
+      - name: Setup problem matchers for PHPUnit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Install dependencies
+        run: composer update --no-progress
+
+      - name: Run PHPUnit
+        run: vendor/bin/phpunit
+
+      - name: Set coverage PERCENT variable
+        run: vendor/bin/badge-percent build/logs/clover.xml >> $GITHUB_ENV
+
+      - name: Set coverage COLOR variable
+        run: vendor/bin/badge-color build/logs/clover.xml >> $GITHUB_ENV
+
+      - name: Create coverage badge
+        uses: schneegans/dynamic-badges-action@v1.1.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: a0d8994934bb1f7ccbe62b641cdf6b5b
+          filename: middleware.json
+          label: coverage
+          message: ${{ env.PERCENT }}
+          color: ${{ env.COLOR }}
+          style: flat-square
