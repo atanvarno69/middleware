@@ -29,6 +29,7 @@ use Atanvarno\Middleware\{
  */
 class MiddlewareDispatcher implements Handler, Middleware
 {
+    /** @internal */
     protected ?HandlerProvider $finalHandler;
 
     /**

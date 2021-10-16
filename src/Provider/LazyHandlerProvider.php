@@ -31,7 +31,7 @@ class LazyHandlerProvider implements HandlerProvider
      * Create a LazyHandlerProvider instance.
      *
      * Accepts a factory which generates a Handler instance. This MUST have the
-     * signature: `function (): RequestHandlerInterface`.
+     * signature: `function (): Psr\Http\Server\RequestHandlerInterface`.
      */
     public function __construct(
         protected Closure $factory

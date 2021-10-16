@@ -11,9 +11,7 @@ declare(strict_types = 1);
 
 namespace Atanvarno\Middleware\Test\Provider;
 
-use Exception,
-
-stdClass;
+use Exception, stdClass;
 use Psr\Http\Server\MiddlewareInterface as Middleware;
 use Atanvarno\Middleware\{
     Exception\RuntimeException,

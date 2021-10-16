@@ -18,8 +18,7 @@ use Atanvarno\Middleware\{
 };
 
 /**
- * Stores a middleware queue given to the constructor and provides them in order
- * to a middleware dispatcher.
+ * Stores a middleware queue and provides them to a middleware dispatcher.
  */
 class BasicMiddlewareProvider implements MiddlewareProvider
 {

@@ -27,6 +27,8 @@ interface MiddlewareProvider
      * Retrieve the next available middleware.
      *
      * MUST NOT throw an UnderflowException when `empty()` returns `false`.
+     *
+     * MAY throw a MiddlewareException.
      */
     public function get(): Middleware;
 }

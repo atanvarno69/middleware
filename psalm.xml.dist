@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <psalm
     errorLevel="1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -6,10 +6,11 @@
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
     cacheDirectory="./build/psalm-cache"
 >
-    <projectFiles>
-        <directory name="src" />
-        <ignoreFiles>
-            <directory name="vendor" />
-        </ignoreFiles>
-    </projectFiles>
+  <projectFiles>
+    <directory name="src" />
+    <ignoreFiles>
+      <directory name="tests" />
+      <directory name="vendor" />
+    </ignoreFiles>
+  </projectFiles>
 </psalm>

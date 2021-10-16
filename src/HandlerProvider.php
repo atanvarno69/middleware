@@ -19,9 +19,9 @@ use Psr\Http\Server\RequestHandlerInterface as Handler;
 interface HandlerProvider
 {
     /**
-     * Retrieve the stored handler.
+     * Provide the stored handler.
      *
-     * MUST NOT throw an UnderflowException when `empty()` returns `false`.
+     * MAY throw a MiddlewareException.
      */
     public function get(): Handler;
 }

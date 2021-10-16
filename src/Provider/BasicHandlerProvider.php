@@ -15,24 +15,21 @@ use Psr\Http\Server\RequestHandlerInterface as Handler;
 use Atanvarno\Middleware\HandlerProvider;
 
 /**
- * Stores a final handler given to the constructor for use by a middleware
- * dispatcher.
+ * Stores a final handler for use by a middleware dispatcher.
  */
 class BasicHandlerProvider implements HandlerProvider
 {
     /**
      * Create a BasicHandlerProvider instance.
      *
-     * Accepts a Handler to provide.
+     * Accepts a Handler to store.
      */
     public function __construct(
         protected Handler $handler
     ) {
     }
 
-    /**
-     * Provide the stored handler.
-     */
+    /** @inheritdoc */
     public function get(): Handler
     {
         return $this->handler;

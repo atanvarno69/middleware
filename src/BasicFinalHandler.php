@@ -19,8 +19,7 @@ use Psr\Http\{
 };
 
 /**
- * A basic final handler that provides an empty response regardless of the
- * request.
+ * Provides an empty response regardless of the request.
  */
 class BasicFinalHandler implements Handler
 {

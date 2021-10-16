@@ -35,7 +35,8 @@ class LazyMiddlewareProvider implements MiddlewareProvider
      * Create a LazyMiddlewareProvider instance.
      *
      * Accepts a queue of factories which each generate a Middleware instance.
-     * These must have the signature: `function (): MiddlewareInterface`.
+     * These must have the signature:
+     * `function (): Psr\Http\Server\MiddlewareInterface`.
      */
     public function __construct(Closure ...$middlewareFactories)
     {
